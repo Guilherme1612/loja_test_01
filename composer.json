@@ -1,0 +1,19 @@
+{
+	"name": "loja_test_01",
+	"require": {
+		"php": ">= 7.0"
+	},
+	"authors": [
+		{
+			"name": "Guilherme Avelino",
+			"email": "guilhermeavelino1@outlokk.com",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"App\\": "App/",
+			"MF\\": "vendor/MF/"
+		}
+	}
+}

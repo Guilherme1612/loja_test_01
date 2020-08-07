@@ -1,0 +1,154 @@
+/* Botão de Exportação dos dados da tabela */
+.breadcrumb>.dropdown-menu>h6{
+    padding: 10px 20px !important;
+    color: #17a2b8;
+}
+.btn-exports{
+    box-shadow: 0px 0px 0px !important;
+}
+.btn-exports:hover{
+    background-color: rgb(69, 76, 83) !important;
+}
+.fa-ellipsis-v{
+    font-size: 18px;
+}
+.fa-file-excel{
+    font-size: 16px !important;
+}
+.custom-control-input, .custom-control-label{
+    cursor: pointer !important;
+}
+.drop{
+    background-color: #FFFFFF;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999 !important;
+    padding: 0 !important;
+    border: 1px solid #e4eaf2;
+    margin-right: 30px !important;
+}
+.drop a{
+    text-decoration: none;
+    display: block;
+    font-size: 11pt;
+    font-family: Arial;
+    color: #6c757d !important;
+    transition: 0.1s ease-in-out;
+    padding: 15px 20px !important;
+}
+.drop a:hover {
+    background-color: #F2F2F2;
+    color: #17a2b8 !important;
+}
+.drop a i{
+    font-size: 12pt
+}
+
+/* Recursos datatable */
+label{
+    margin: 15px 0;
+}
+/* Selecionado registros por página */
+select.custom-select{
+    background-color: rgb(238, 240, 240);
+    border: 0px !important;
+    border-radius: 5px;
+    margin: 0 0 0 10px; 
+    cursor: pointer;
+}
+/* Barra de pesquisa */
+input[type="search"]{
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-radius: 50px;
+}
+/* Tabela */
+table.dataTable{
+    border: 1px solid rgb(202, 202, 202) !important;
+}
+/* Cabeçalho da tabela */
+table.dataTable thead th, table.dataTable thead td {
+    background-color: rgb(238, 238, 238);
+    border-bottom: 1px solid rgb(192, 192, 192) !important;
+    padding: 20px !important;
+    text-align: center !important;
+}
+/* Ícone de visualização (+) */
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th.dtr-control:before {
+    left: 8px;
+    height: 18px;
+    width: 18px;
+    border: 0px !important;
+    border-radius: 18px;
+    font-weight: 900;
+    line-height: 18px;
+    background-color: #17a2b8;
+}
+/* Páginação */
+.dataTables_info, .dataTables_paginate{
+    margin: 10px 0px !important;
+    padding-top: 0px !important;
+    line-height: 38px !important;
+}
+.page-item.active .page-link{
+    background-color: #17a2b8 !important;
+    border: 1px solid #17a2b8;  
+    color: #FFFFFF !important;
+}
+.page-link{
+    color: #5a5a5a !important;
+}
+/* Campos da tabela */
+.table td, .odd th {
+    min-width:150px;
+}
+/* Espaçamento interno dos campos da tabela */
+.table td, .table th{
+    padding: 0;
+}
+table.dataTable thead th{ 
+    padding: 10px 7px 20px;
+}
+table tr th::after,tr th::before{
+    opacity: 0!important
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    padding: 0!important;
+    border: 0!important;
+}
+tbody td{
+    padding: 15px 5px!important;
+    vertical-align: middle!important;
+}
+tbody th{
+    vertical-align: middle!important;
+}
+.tabelas{
+    margin-top:20px;
+    text-decoration-color: none!important;
+    background-color: #343a40;
+    color:white;
+    transition: .5s;
+}
+.tabelas:hover{
+    background-color: white;
+    color:#343a40;
+}
+.content-user{
+    margin-top: 10vh;
+}
+.table-events{
+    margin-top: 10vh;
+}
+.mt-10vh{
+    margin-top: 10vh;
+}

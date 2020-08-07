@@ -1,0 +1,151 @@
+<section class="content-user p-3" id="">
+    <ol class="breadcrumb mb-4 bg-dark justify-content-between">
+        <li class="breadcrumb-item active">
+            <button class="btn btn-outline-light" data-toggle="modal" data-target="#cad-modal">
+                <h4 class="m-0 d-sm-block d-none"><i class="fas fa-user mr-3 ml-2" style="font-size:28px"></i>Cadastar funcionário</h4>
+                <h4 class="m-0 d-sm-none d-block"><i class="fas fa-user mr-3 ml-2" style="font-size:28px"></i>Cadastar</h4>
+            </button>
+        </li>
+        <button class="btn bg-transparent btn-exports px-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-ellipsis-v text-white"></i>
+        </button>
+        <div class="dropdown-menu drop p-0" aria-labelledby="dropdownMenuButton">
+            <h6 class="p-2">Exportar</h6>
+            <a type="button" data-toggle="modal" data-target="#export-modal">
+                <i class="far fa-file-excel"></i>
+                <span class="ml-1">Para Excel</span>
+			</a>
+        </div>
+    </ol>
+    <div class="card mb-4 border-0 shadow">
+        <div class="card-body table-responsive pt-1 ">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="registros" role="tabpanel" aria-labelledby="registros-tab">
+                    <table class="table-bordered table-hover mb-0 display responsive nowrap" style="width:100%" id="dataTable" role="tabpanel" aria-labelledby="dataTable-tab">
+                        <thead class="text-center card-header text-dark">
+                            <tr>
+								<th>Nome</th>
+								<th>Cargo</th>
+                                <th>Data de nascimento</th>
+                                <th>Data de admissão</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <?php foreach ($this->view->employee  as $e) { ?>
+                                <tr>
+									<td><?= $e['nome'] ?></td>
+									<td><?= $e['cargo'] ?></td>
+                                    <td><?= date('d/m/Y', strtotime($e['data_nascimento'])) ?></td>
+                                    <td><?= date('d/m/Y', strtotime($e['data_admissao'])) ?></td>
+                                    <th>
+                                        <form action="edit_employee" method="post" class="d-inline-block">
+                                            <input type="hidden" name="id" value="<?= $e['id'] ?>">
+                                            <input type="hidden" name="nome" value="<?= $e['nome'] ?>">
+                                            <input type="hidden" name="data_nascimento" value="<?= $e['data_nascimento'] ?>">
+                                            <input type="hidden" name="data_admissao" value="<?= $e['data_admissao'] ?>">
+                                            <input type="hidden" name="cargo" value="<?= $e['cargo'] ?>">
+                                            <abbr title="Editar registro">
+                                                <button type="submit" class="btn btn-info btn-action">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </abbr>
+                                        </form>
+                                        <form action="remove_employee" method="post" class="d-inline-block">
+											<input type="hidden" name="id" value="<?= $e['id'] ?>">
+                                            <input type="hidden" name="nome" value="<?= $e['nome'] ?>">
+                                            <input type="hidden" name="data_nascimento" value="<?= $e['data_nascimento'] ?>">
+                                            <input type="hidden" name="data_admissao" value="<?= $e['data_admissao'] ?>">
+                                            <input type="hidden" name="cargo" value="<?= $e['cargo'] ?>">
+                                            <abbr title="Excluir registro">
+                                                <button type="submit" class="btn btn-danger btn-action">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </abbr>
+                                        </form>
+                                    </th>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal de cadastro -->
+<div class="modal fade" id="cad-modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0">
+            <div class="modal-header text-center align-items-center">
+                <h4 class="modal-title font-weight-bold text-secondary">Cadastrar funcionário</h4>
+                <button type="button" class="close border-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/register_employee" method="post">
+                <div class="modal-body py-2">
+                    <div class="card card-body border-0 pt-0 text-secondary">
+						<div class="my-4">
+							<label for="nome">Nome</label>
+							<input type="text" name="nome" id="nome" class="form-control" size="60" placeholder="Nome" maxlength="60" required>
+						</div>
+						<div class="mb-4">
+							<label for="cargo">Cargo</label>
+							<input type="text" name="cargo" id="cargo" class="form-control mb-2" size="60" placeholder="Cargo" maxlength="60" required>
+						</div>
+						<div class="d-flex justify-content-between">
+							<div>
+								<label for="data_nascimento">Data de nascimento</label>
+								<input type="date" name="data_nascimento" id="data_nascimento" class="form-control mb-4" size="60" placeholder="Data de nascimento" maxlength="10" required>
+							</div>
+							<div>
+								<label for="data_admissao">Data de admissão</label>
+								<input type="date" name="data_admissao" id="data_admissao" class="form-control mb-4" size="60" placeholder="Data de admissão" maxlength="10" required>
+							</div>
+						</div>
+					</div>
+                </div>
+                <button type="submit" class="btn btn-info modal-footer justify-content-center w-100">
+					<h5>Cadastrar</h5>	
+				</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal de exportação-->
+<div class="modal fade" id="export-modal" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content border-0">
+            <div class="modal-header text-center align-items-center">
+                <h4 class="modal-title font-weight-bold text-secondary">Exportação de dados</h4>
+                <button type="button" class="close border-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/export_employee" method="post">
+                <div class="modal-body py-2">
+                    <div class="card card-body text-secondary border-0 pt-0">
+						<div class="my-4">
+							<label>Filtrar</label>
+							<select id="select-categoria-export" name="categoria" class="form-control">
+								<option value="Todos os funcionários">Todos os funcionários</option>
+								<option value="Por data de admissão">Por data de admissão</option>
+							</select>
+						</div>
+                        <div>
+                            <div id="campo-data-admissao" class="mb-4">
+								<label>Data de admissão</label>
+                                <input type="date" name="data_admissao" class="form-control" maxlength="10" size="60">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-info modal-footer justify-content-center w-100">
+					<h5>Exportar</h5>	
+				</button>
+            </form>
+        </div>
+    </div>
+</div>
+
