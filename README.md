@@ -6,7 +6,7 @@ Aplicação simples e intuitiva.
 
 ## Iniciando Projeto
 
-Após executar o banco de dados MySQL, basta iniciar o projeto, mas para isso será necessário verificar se o PHP está instalado globalmente na máquina em questão.
+Depois de executar o banco de dados MySQL, é necessário verificar se o PHP está instalado globalmente na máquina em questão, após a confirmação, basta iniciar o projeto.
 
     cd public
     php -S localhost:8080
